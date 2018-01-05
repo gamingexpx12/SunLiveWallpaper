@@ -77,7 +77,7 @@ function addLineAngle(parent, cx, cy, pathradius, angle) {
         "y1": cy,
         "x2": cx,
         "y2": cy + pathradius,
-        "stroke": "black",
+        "stroke": "pink",
         "stroke-width": "5px",
         "transform": "rotate(" + angle + " " + cx + " " + cy + ")",
     })
