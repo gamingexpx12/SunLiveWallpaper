@@ -70,3 +70,15 @@ function Time(date) {
   this.fraction = d3.scaleLinear().domain([this.sunrise, this.sunset])(this.totalSeconds)
 
 }
+
+function addLineAngle(parent, cx, cy, pathradius, angle) {
+    parent.append("line").attrs({
+        "x1": cx,
+        "y1": cy,
+        "x2": cx,
+        "y2": cy + pathradius,
+        "stroke": "black",
+        "stroke-width": "5px",
+        "transform": "rotate(" + angle + " " + cx + " " + cy + ")",
+    })
+}

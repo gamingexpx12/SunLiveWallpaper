@@ -29,14 +29,15 @@ var clock = d3.select("svg").append("text")
     .attr("fill", "white").attr("text-anchor", "middle")
     .style("font", "bold 100px Verdana, Helvetica, Arial, sans-serif")
 
-
-
+const newsun = new Sun(svg, window.outerWidth * 0.5, window.outerHeight * 0.5, 400)
 
 var newtime = new Time(new Date())
 
 function update() {
     newtime = new Time(new Date())
     //newtime = debugTime
+
+    newsun.setSeconds(newtime.totalSeconds)
 
     clock.text(newtime.date.toLocaleTimeString(locale)) //Digital clock
     //Move sun along path
