@@ -1,11 +1,11 @@
 {
 	"contentrating" : "Everyone",
 	"file" : "index.html",
-	"general" : 
+	"general" :
 	{
-		"properties" : 
+		"properties" :
 		{
-			"schemecolor" : 
+			"schemecolor" :
 			{
 				"order" : 0,
 				"text" : "ui_browse_properties_scheme_color",
@@ -16,7 +16,7 @@
 	},
 	"preview" : "preview.jpg",
 	"tags" : [ "Abstract" ],
-	"title" : "Clock",
+	"title" : "Live sun",
 	"type" : "web",
 	"visibility" : "public"
 }
