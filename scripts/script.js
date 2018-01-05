@@ -39,6 +39,10 @@ function update() {
 
     newsun.setSeconds(newtime.totalSeconds)
 
+    sunriseLine.updateSeconds(newtime.sunrise)
+    sunsetLine.updateSeconds(newtime.sunset)
+
+
     clock.text(newtime.date.toLocaleTimeString(locale)) //Digital clock
     //Move sun along path
     var sunpathElement = d3.select("#sunpath").node()
@@ -66,6 +70,9 @@ function update() {
         starangle = starangle + 0.1
     }
 }
+
+const sunriseLine = new LineAngle(svg, window.outerWidth * 0.5, window.outerHeight * 0.7, 800, 90)
+const sunsetLine = new LineAngle(svg, window.outerWidth * 0.5, window.outerHeight * 0.7, 800, 90)
 
 getSunriseSunsetTimes()
 AddStars(stargroup, 500)

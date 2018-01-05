@@ -82,3 +82,25 @@ function addLineAngle(parent, cx, cy, pathradius, angle) {
         "transform": "rotate(" + angle + " " + cx + " " + cy + ")",
     })
 }
+
+function LineAngle(parent,cx, cy, pathradius, angle) {
+    this.x = cx
+    this.y = cy
+    this.line = parent.append("line").attrs({
+        "x1": cx,
+        "y1": cy,
+        "x2": cx,
+        "y2": cy + pathradius,
+        "stroke": "pink",
+        "stroke-width": "5px",
+        "transform": "rotate(" + angle + " " + cx + " " + cy + ")",
+    })
+
+    this.updateAngle = function(angle) {
+        this.line.attr("transform", "rotate(" + angle + " " + this.x + " " + this.y + ")")
+    }
+
+    this.updateSeconds = function (secs) {
+        this.updateAngle(secs / 86400 * 360)
+    }
+}
