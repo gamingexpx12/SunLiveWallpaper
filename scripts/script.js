@@ -65,30 +65,8 @@ function update() {
         starangle = starangle + 0.1
     }
 }
-// MORE HACKING!!!
-function AddSunpath(selection) {
-    let g = selection.append("g")
-        .attr("transform", "translate(" + (1920 / 2) + "," + (1080 / 2) + ")")
-    let path = g.append("path").attr("d", "m -50 -50 a 25 25 -30 0 1 100 0 a 25 25 -30 0 1 -100 0")
-            .attr("transform", "scale(1)")
-            .style("fill", "none")
-            .attr("stroke", "red")
-            .attr("stroke-width", "5")
-            let sunpathElement = path.node()
-            let sunpathL = sunpathElement.getTotalLength()
-            console.log(sunpathL)
-            let sunpathPoint = sunpathElement.getPointAtLength(2 * sunpathL)
-            console.log(sunpathPoint)
-            svg.append("circle")
-            .attr("r", 20)
-            .attr("cx", sunpathPoint.x)
-            .attr("cy", sunpathPoint.y)
-            .attr("fill", "yellow")
-}
-
 
 getSunriseSunsetTimes()
 AddStars(stargroup, 500)
-AddSunpath(svg)
 update()
 setInterval(update, 100)
