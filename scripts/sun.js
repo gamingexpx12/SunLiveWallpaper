@@ -29,4 +29,10 @@ function Sun(parent, cx, cy, pathradius) {
         this.setAngle(angle)
         return angle
     }
+    this.setDaytimeFraction = function (fraction) {
+        let angle = fraction * 0.5 * 360 + 90
+        this.setAngle(angle)
+        return angle
+    }
+
 }
