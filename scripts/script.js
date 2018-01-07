@@ -29,29 +29,21 @@ var clock = d3.select("svg").append("text")
     .attr("fill", "white").attr("text-anchor", "middle")
     .style("font", "bold 100px Verdana, Helvetica, Arial, sans-serif")
 
-const newsun = new Sun(svg, window.outerWidth * 0.5, window.outerHeight * 0.7 + 100, 400)
+const newsun = new Sun(svg, window.outerWidth * 0.5, window.outerHeight * 0.7 + 100, 600)
 var newtime = new Time(new Date())
 
 function update() {
     newtime = new Time(new Date())
     //newtime = debugTime
 
-    //newsun.setSeconds(newtime.totalSeconds)
-    //newsun.setDaytimeFraction(newtime.fraction)
-
-    sunriseLine.updateSeconds(newtime.sunrise)
-    sunsetLine.updateSeconds(newtime.sunset)
+    newsun.setDaytimeFraction(newtime.fraction)
 
 
     clock.text(newtime.date.toLocaleTimeString(locale)) //Digital clock
     //Move sun along path
-    var sunpathElement = d3.select("#sunpath").node()
-    var sunpathLength = sunpathElement.getTotalLength()
     if (newtime.fraction < 1 && newtime.fraction > 0) {
-        var sunpathPoint = sunpathElement.getPointAtLength(newtime.fraction * sunpathLength)
-        sun.attr("cx", sunpathPoint.x).attr("cy", sunpathPoint.y)
         //More color hacking
-        sun.attr("fill", "orange")
+        sun.attr("fill", "none")
         d3.select("#grass").attr("fill", "seagreen")
         d3.select("#sky").attr("fill", "hsl(208, 44%, 70%)")
         stargroup.attr("fill", "none")
@@ -70,9 +62,6 @@ function update() {
         starangle = starangle + 0.1
     }
 }
-
-const sunriseLine = new LineAngle(svg, window.outerWidth * 0.5, window.outerHeight * 0.7, 800, 90)
-const sunsetLine = new LineAngle(svg, window.outerWidth * 0.5, window.outerHeight * 0.7, 800, 90)
 
 getSunriseSunsetTimes()
 AddStars(stargroup, 500)
