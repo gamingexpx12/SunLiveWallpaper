@@ -1,6 +1,9 @@
 function Sun(parent, cx, cy, pathradius) {
     const secondsinday = 86400
-    this.svg = parent.append("svg")
+
+    this.parent = d3.select("body").append("svg")
+
+    this.svg = this.parent.append("svg")
         .attr("width", "100%").attr("height", "1080")
         .attr("viewbox", "0 0 100% 100%").attr("version", "1.1")
 
@@ -39,5 +42,7 @@ function Sun(parent, cx, cy, pathradius) {
         this.setAngle(angle)
         return angle
     }
+    this.parent.remove()
+    delete this.parent
 
 }
