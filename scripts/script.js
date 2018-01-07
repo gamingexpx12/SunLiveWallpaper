@@ -29,7 +29,7 @@ var clock = d3.select("svg").append("text")
     .attr("fill", "white").attr("text-anchor", "middle")
     .style("font", "bold 100px Verdana, Helvetica, Arial, sans-serif")
 
-const newsun = new Sun(svg, window.outerWidth * 0.5, window.outerHeight * 0.7 + 100, 600)
+const newsun = new Sun(svg, window.outerWidth * 0.5, window.outerHeight * 0.7 + 100, 600).sunradius(100)
 var newtime = new Time(new Date())
 
 function update() {

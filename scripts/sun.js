@@ -13,6 +13,11 @@ function Sun(parent, cx, cy, pathradius) {
         "fill": "orange",
     })
 
+    this.sunradius = function (radius) {
+        this.sun.attr("r", radius)
+        return this
+    }
+
     this.setAngle = function (angle) {
         let x = cx
         let y = cy
