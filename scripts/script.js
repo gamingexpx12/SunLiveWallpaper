@@ -20,7 +20,6 @@ var debugTime = new Time(new Date(2017, 10, 31, 7, 20, 1, 0));
           debugTime = new Time(SecondsToDate(this.value))
         })
 */
-var sun = d3.select("#sun")
 d3.select("html").style("overflow", "hidden")
 //Make Digital clock
 var clock = d3.select("svg").append("text")
@@ -44,18 +43,15 @@ function update() {
     //Move sun along path
     if (newtime.fraction < 1 && newtime.fraction > 0) {
         //More color hacking
-        sun.attr("fill", "none")
         d3.select("#grass").attr("fill", "seagreen")
         d3.select("#sky").attr("fill", "hsl(208, 44%, 70%)")
         stargroup.attr("fill", "none")
         //Color hacking
         if (newtime.fraction > 0.95 || newtime.fraction < 0.05) {
-            sun.attr("fill", "red")
             d3.select("#sky").attr("fill", "orange")
             d3.select("#grass").attr("fill", "#20a420")
         }
     } else {
-        sun.attr("fill", "none")
         d3.select("#grass").attr("fill", "darkgreen")
         d3.select("#sky").attr("fill", "black")
         stargroup.attr("fill", "white")
