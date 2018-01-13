@@ -1,6 +1,6 @@
 var sunAPI = "https://api.sunrise-sunset.org/json?lat=58.943598&lng=5.714572&date=today&formatted=0"
 var locale = "en-GB"
-var svg = d3.select("svg").style("z-index", "1")
+var svg = d3.select("svg")
 var stargroup = svg.insert("g", "#grass").attr("id", "stargroup")
 var sunResults = ""
 var sunrise = 21600
@@ -10,16 +10,8 @@ var dusk = 65800
 var starangle = 0
 const tau = 2 * Math.PI
 
-//Debugtime slider
 var debugTime = new Time(new Date(2017, 10, 31, 7, 20, 1, 0));
-/*d3.select("div").append("input")
-        .attr("type", "range")
-        .attr("min", "0")
-        .attr("max", "86400")
-        .on("input", function () {
-          debugTime = new Time(SecondsToDate(this.value))
-        })
-*/
+
 d3.select("html").style("overflow", "hidden")
 //Make Digital clock
 var clock = d3.select("svg").append("text")
