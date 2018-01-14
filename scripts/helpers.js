@@ -59,6 +59,10 @@ function getSunriseSunsetFromLatLon(lat, lon, callback) {
     })
 }
 
+function timeOfDay(sunriseBegin, sunriseEnd, sunsetBegin, sunsetEnd) {
+    return "day"
+}
+
 function Time(date) {
   this.date = date
   this.h = date.getHours()
@@ -68,7 +72,7 @@ function Time(date) {
   this.sunrise = sunrise
   this.sunset = sunset
   this.fraction = d3.scaleLinear().domain([this.sunrise, this.sunset])(this.totalSeconds)
-
+  this.timeOfDay = timeOfDay(0, this.sunrise, this.sunset, 0)
 }
 
 function addLineAngle(parent, cx, cy, pathradius, angle) {
