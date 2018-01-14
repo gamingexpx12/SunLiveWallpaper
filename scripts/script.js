@@ -62,7 +62,6 @@ function update() {
 
     newsun.setDaytimeFraction(newtime.fraction)
 
-
     clock.text(newtime.date.toLocaleTimeString(locale)) //Digital clock
     //Move sun along path
     if (newtime.fraction < 1 && newtime.fraction > 0) {
