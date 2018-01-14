@@ -10,6 +10,8 @@ var dusk = 65800
 var starangle = 0
 const tau = 2 * Math.PI
 
+let debugmode = false
+
 var debugTime = new Time(new Date(2017, 10, 31, 7, 20, 1, 0));
 
 const svg = d3.select("div").append("svg")
@@ -53,8 +55,12 @@ svg.insert(() => newsun.svg.node(), "#grass")
 var newtime = new Time(new Date())
 
 function update() {
-    newtime = new Time(new Date())
-    //newtime = debugTime
+    
+    if (debugmode) {
+        newtime = debugTime
+    } else {
+        newtime = new Time(new Date())
+    }
 
     newsun.setDaytimeFraction(newtime.fraction)
 
