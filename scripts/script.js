@@ -48,29 +48,29 @@ const stars = svg.insert("g", "#grass")
     .attr("id", "stargroup")
 AddStars(stars, 500)
 //Add sun
-const newsun = new Sun(svg, window.outerWidth * 0.5, window.outerHeight * 0.7 + 100, 600).sunradius(100)
-svg.insert(() => newsun.svg.node(), "#grass")
-var newtime = new Time(new Date())
+const sun = new Sun(svg, window.outerWidth * 0.5, window.outerHeight * 0.7 + 100, 600).sunradius(100)
+svg.insert(() => sun.svg.node(), "#grass")
+var time = new Time(new Date())
 
 function update() {
 
     if (debugmode) {
-        newtime = debugTime
+        time = debugTime
     } else {
-        newtime = new Time(new Date())
+        time = new Time(new Date())
     }
 
-    newsun.setDaytimeFraction(newtime.fraction)
+    sun.setDaytimeFraction(time.fraction)
 
-    clock.text(newtime.date.toLocaleTimeString(locale)) //Digital clock
+    clock.text(time.date.toLocaleTimeString(locale)) //Digital clock
     //Move sun along path
-    if (newtime.fraction < 1 && newtime.fraction > 0) {
+    if (time.fraction < 1 && time.fraction > 0) {
         //More color hacking
         d3.select("#grass").attr("fill", "seagreen")
         d3.select("#sky").attr("fill", "hsl(208, 44%, 70%)")
         stars.attr("fill", "none")
         //Color hacking
-        if (newtime.fraction > 0.95 || newtime.fraction < 0.05) {
+        if (time.fraction > 0.95 || time.fraction < 0.05) {
             d3.select("#sky").attr("fill", "orange")
             d3.select("#grass").attr("fill", "#20a420")
         }
