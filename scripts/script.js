@@ -1,7 +1,5 @@
 var sunAPI = "https://api.sunrise-sunset.org/json?lat=58.943598&lng=5.714572&date=today&formatted=0"
 var locale = "en-GB"
-//var svg = d3.select("svg")
-//var stargroup = svg.insert("g", "#grass").attr("id", "stargroup")
 var sunResults = ""
 var sunrise = 21600
 var sunset = 64800
@@ -55,7 +53,7 @@ svg.insert(() => newsun.svg.node(), "#grass")
 var newtime = new Time(new Date())
 
 function update() {
-    
+
     if (debugmode) {
         newtime = debugTime
     } else {
