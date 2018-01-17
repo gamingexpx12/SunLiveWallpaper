@@ -26,6 +26,7 @@ var clock = d3.select("svg").append("text")
     .attr("x", "50%").attr("y", "70%")
     .attr("fill", "white").attr("text-anchor", "middle")
     .style("font", "bold 100px Verdana, Helvetica, Arial, sans-serif")
+    .attr("id", "digital-clock")
 
 //Add background(sky)
 const back = svg.insert("rect",":first-child")
@@ -80,6 +81,15 @@ function update() {
         stars.attr("fill", "white")
         stars.attr("transform", "rotate(" + starangle +", 960, 1920)")
         starangle = starangle + 0.1
+    }
+}
+
+window.wallpaperPropertyListener = {
+    applyUserProperties: function(properties) {
+        if (properties.clockposition) {
+            d3.select("#digital-clock")
+            .attr("x", properties.clockposition.value + "%")
+        }
     }
 }
 
