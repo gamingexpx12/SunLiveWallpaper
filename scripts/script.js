@@ -47,7 +47,7 @@ const fore = svg.insert("rect", ":last-child")
 //Add stars
 const stars = svg.insert("g", "#grass")
     .attr("id", "stargroup")
-AddStars(stars, 500)
+// HACK: AddStars(stars, 500) //Stop stars from appearing
 //Add sun
 const sun = new Sun(svg, window.outerWidth * 0.5, window.outerHeight * 0.7 + 100, 600).sunradius(100)
 svg.insert(() => sun.svg.node(), "#grass")
